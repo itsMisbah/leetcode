@@ -1,0 +1,202 @@
+#1-----------check anagaram
+
+def check_anagaram(s1, s2):
+    if len(s1) != len(s2):
+        return False
+    
+    seen = {}
+    for char in s1:
+        if char in seen:
+            seen[char] += 1
+        else:
+            seen[char] = 1
+    
+    for char in s2:
+        if char in seen:
+            seen[char] -= 1
+        else:
+            return False
+    
+    for val in seen:
+        if seen[val] != 0:
+            return False
+    return True
+    
+print(check_anagaram("earth", "heart"))
+
+# time complexity = O(n)
+            
+
+
+#2--------------longest non-repeating substring
+
+def longest_nonRepeating_stirng(s):
+    best = ""
+    start = 0
+    seen = {}
+    
+    for end in range(len(s)):
+        char = s[end]
+        
+        if char in seen and seen[char] >= start:
+            start = seen[char] + 1
+        
+        seen[char] = end
+            
+            
+        if end - start + 1 > len(best):
+            best = s[start:end+1]
+            
+    return best
+    
+    
+print(longest_nonRepeating_stirng("abcdaefghe"))
+
+# time complexity = O(n)
+            
+#3---------------find middle node
+def middle_node(head):
+    slow = head
+    fast = head
+    
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        
+    return slow.data
+    
+    
+print(middle_node(n1))
+
+# time complexity = O(n)
+
+#4------------- find third last node
+def find_third_last(head):
+    first  = head
+    second = head
+
+    # second ko 3 aage bhejo
+    for i in range(3):
+        second = second.next
+
+    # dono saath chalao
+    while second:
+        first  = first.next
+        second = second.next
+
+    return first.data
+
+print(find_third_last(n1))  
+#time complexity O(n)
+
+#5-------- find repeating node
+def find_repeating_node(head):
+    first  = head
+    seen = {}
+    
+    while first:
+        if first.data in seen:
+            return first.data
+            
+        seen[first.data] = 1
+        first = first.next
+
+    return None
+
+#time complexity O(n)
+
+#==============
+# arrange string regarding its frequency
+
+def frequency(s):
+    count = {}
+    result = ""
+    
+    for char in s:
+        if char in count:
+            count[char] += 1
+        else:
+            count[char] = 1
+    
+    keys = list(count.keys())
+    for i in range(len(keys)):
+        for j in range(i+1, len(keys)):
+            if count[keys[i]] < count[keys[j]]:
+                keys[i] , keys[j] = keys[j] , keys[i]
+    
+    for key in keys:
+        result += key * count[key]
+        
+    return result
+        
+print(frequency("aabbbbcccccc"))
+#time com O(n + k^2)
+
+===================
+# check Armstrong number 153 → True
+
+def armstrong_number(n):
+    temp = n
+    digit = 0
+    result = 0
+    
+    while temp > 0:
+        digit = temp % 10
+        result += digit * digit * digit
+        temp = temp // 10
+        
+    if result == n:
+        return True
+        
+    return False
+        
+print(armstrong_number(372))
+#time complexity= O(logn)
+
+===============
+# String reverse  "hello" → "olleh"
+
+def reverse_stirng(s):
+    result = ""
+    
+    for char in s:
+        result = char + result
+        
+    return result
+        
+print(reverse_stirng("hello"))
+
+#time complexity O(n)
+        
+=================
+# remove vowels  "hello" → "hll"
+def remove_vowels(s):
+    vowels = "aeiouAEIOU"
+    result = ""
+    
+    for char in s:
+        if char not in vowels:
+            result += char
+            
+    return result
+        
+print(remove_vowels("hello"))
+
+#time complexity O(n)
+
+========================
+
+# sum of all previous number 5 --> 1+2+3+4+5 = 15
+def sum_of_previous(n):
+    num = 0
+    
+    for i in range(1, n+1):
+        num += i
+            
+    return num
+        
+print(sum_of_previous(5))
+
+#time complexity O(n)
+        
+    
