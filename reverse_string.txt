@@ -1,0 +1,13 @@
+# reverse string hellow world
+
+def reverse_string(s):
+    words = s.split()
+    new_string = ""
+    
+    for word in words:
+        new_string = word + " " + new_string
+    
+    return new_string
+    
+print(reverse_string("hellow world this is Misbah"))
+# time coplexity O(n)

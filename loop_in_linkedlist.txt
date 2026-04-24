@@ -1,0 +1,17 @@
+# detect loop in linked list 
+
+def loop(head):
+    slow = head
+    fast = head
+    
+    while fast or fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        
+        if slow == fast:
+            return True
+    
+    return False
+    
+print(loop(r1))
+# time coplexity O(n)

@@ -1,0 +1,25 @@
+# common char in two strings
+def repeative_char(s1, s2):
+    seen = {}
+    result = ""
+    
+    for char in s1:
+        if char not in seen:
+            seen[char] = 1
+            
+    for char in s2:
+        if char in seen:
+            seen[char] = 0
+            
+    keys = list(seen.keys())
+    for key in keys:
+        if seen[key] == 0:
+            result += key
+            
+    return result
+    
+        
+print(repeative_char("abbcdef", "abcgh"))
+
+#time complexity O(n+m)
+        

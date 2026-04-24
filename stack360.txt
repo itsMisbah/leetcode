@@ -1,4 +1,4 @@
-#1-----------check anagaram
+check anagaram
 
 def check_anagaram(s1, s2):
     if len(s1) != len(s2):
@@ -26,9 +26,8 @@ print(check_anagaram("earth", "heart"))
 
 # time complexity = O(n)
             
-
-
-#2--------------longest non-repeating substring
+=========================
+longest non-repeating substring
 
 def longest_nonRepeating_stirng(s):
     best = ""
@@ -53,8 +52,9 @@ def longest_nonRepeating_stirng(s):
 print(longest_nonRepeating_stirng("abcdaefghe"))
 
 # time complexity = O(n)
-            
-#3---------------find middle node
+           
+==========================
+find middle node of linkedlist
 def middle_node(head):
     slow = head
     fast = head
@@ -70,7 +70,8 @@ print(middle_node(n1))
 
 # time complexity = O(n)
 
-#4------------- find third last node
+==========================
+find third last node of linkedlist
 def find_third_last(head):
     first  = head
     second = head
@@ -89,7 +90,8 @@ def find_third_last(head):
 print(find_third_last(n1))  
 #time complexity O(n)
 
-#5-------- find repeating node
+====================
+find repeating node 
 def find_repeating_node(head):
     first  = head
     seen = {}

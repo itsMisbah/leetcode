@@ -1,0 +1,18 @@
+# Print Fibonacci series without recursion
+
+def fibonacci(n):
+    first = 1
+    second = 1
+    temp = 0
+    fib = [1,1]
+    
+    for i in range(n-2):
+        temp = first + second
+        first = second
+        second = temp
+        fib.append(second)
+        
+    return fib
+        
+print(fibonacci(6))
+        

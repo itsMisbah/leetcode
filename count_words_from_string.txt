@@ -1,0 +1,13 @@
+# count words from string 
+
+def count_words(s):
+    words = s.split()
+    num = 0
+    
+    for word in words:
+        num += 1
+    
+    return num
+    
+print(count_words("hellow world this is Misbah Devops Engineer"))
+# time coplexity O(n)

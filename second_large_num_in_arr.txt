@@ -1,0 +1,16 @@
+# find second large number
+
+def second_large(arr):
+    first = -1
+    second = -1
+    
+    for num in arr:
+        if num > first:
+            second = first
+            first = num
+        elif num > second and num != first:
+            second = num
+            
+    return second
+    
+print(second_large([1,2,4,6,7,3,2,9]))
