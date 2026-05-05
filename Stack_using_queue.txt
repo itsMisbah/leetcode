@@ -1,0 +1,37 @@
+# stack using queue
+class Stack:
+    def __init__(self):
+        self.queue = []
+
+    # push — element add karo
+    def push(self, val):
+        self.queue.append(val)
+        
+        # naya element front pe lao
+        for i in range(len(self.queue) - 1):
+            front = self.queue[0]
+            self.queue.pop(0)
+            self.queue.append(front)
+
+    # pop — front se nikalo
+    def pop(self):
+        if self.queue:
+            return self.queue.pop(0)
+        return None
+
+    # top — front dekho
+    def top(self):
+        if self.queue:
+            return self.queue[0]
+        return None
+
+
+s = Stack()
+s.push(1)
+s.push(2)
+s.push(3)
+
+print(s.top())   # 3 
+print(s.pop())   # 3 
+print(s.pop())   # 2 
+print(s.pop())   # 1 

@@ -1,0 +1,41 @@
+# stack using queue
+class Queue:
+    def __init__(self):
+        self.stack1 = []   # push ke liye
+        self.stack2 = []   # pop ke liye
+
+    # enqueue — element add karo
+    def enqueue(self, val):
+        self.stack1.append(val)
+
+    # dequeue — element nikalo
+    def dequeue(self):
+        # stack2 khali hai toh stack1 se bharो
+        if not self.stack2:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+
+        if self.stack2:
+            return self.stack2.pop()
+        return None
+
+    # front — pehla element dekho
+    def front(self):
+        if not self.stack2:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+        
+        if self.stack2:
+            return self.stack2[-1]
+        return None
+
+
+q = Queue()
+q.enqueue(1)
+q.enqueue(2)
+q.enqueue(3)
+
+print(q.front())    # 1 
+print(q.dequeue())  # 1 
+print(q.dequeue())  # 2 
+print(q.dequeue())  # 3 
